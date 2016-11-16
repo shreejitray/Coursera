@@ -12,6 +12,8 @@
         $scope.message = '';
         $scope.check = function(){
             let count=0;
+            $scope.style={};
+            $scope.boxStyle = {};
             let items = $scope.lunch.split(',');
             items.forEach( (item) => {
                 let trimmed = item.trim();
@@ -21,9 +23,15 @@
             });
             if(count == 0){
                 $scope.message='Please enter data first';
+                $scope.style={color:'red'};
+                $scope.boxStyle['border-color']='red';
             }else if(count >3){
+                $scope.style={color:'green'};
+                $scope.boxStyle['border-color']='green';
                 $scope.message = 'Too much!';
             }else if(count<=3){
+                $scope.style={color:'green'};
+                $scope.boxStyle['border-color']='green';
                 $scope.message = 'Enjoy!';
             }
         }
